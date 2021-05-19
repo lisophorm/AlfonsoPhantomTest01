@@ -1,27 +1,32 @@
 # AlfonsoPhantomTest01
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+This is the execution of the exercise requested by Phantom. 
 
-## Development server
+This does not pretends to be a show-off of my capabilities. This has to be considered as my ability to come with a proof of concept in a short amount of time.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+I have contained the concept and the execution in exactly **4 hours.**
 
-## Code scaffolding
+## How I progress with the work
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Very first thing I look at the data structure and I create (when required) interfaces for organising the data. Then I create some mock services for handling the data flow
 
-## Build
+To accelerate presentation times I first create some base containers (the pages). Then when I see that the mechanics is there I componentise and encapsulate the various elements.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+In the specific case of this exercise I first created the page components. Then when I completed the logic of the display/pagination I encapsulate in components the various elements (table, paginator etc.).
 
-## Running unit tests
+## External libraries
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Angular material 
 
-## Running end-to-end tests
+ngx-webstorage-service - local storage for the entries
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
+@angular/flex-layout - directives for angular to use the flex box
 
-## Further help
+## Limitations
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+I haven't used yet ngRX or similar. I will do an online course in the next few days.
+
+## Packages used
+flex-layout
+ngx-webstorage-service
+angular material

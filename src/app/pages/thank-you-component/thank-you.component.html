@@ -1,1 +1,6 @@
-<p>thank-you-component works!</p>
+<div class="main-container" fxFlex fxLayout="column">
+  <mat-card fxFlex fxLayout="column">
+    <p *ngIf="addedUrl!=''">Thank you, you submitted the url <a href="{{addedUrl}}">{{addedUrl}}</a></p>
+    <p><a routerLink="/">Back</a></p>
+  </mat-card>
+</div>

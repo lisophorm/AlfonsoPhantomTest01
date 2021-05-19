@@ -1,0 +1,79 @@
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: .25rem;
+}
+
+
+
+.page-link {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+
+  &:hover {
+    z-index: 2;
+    // color: $pagination-hover-color;
+    text-decoration: none;
+    background-color: #dee2e6;
+    // border-color: $pagination-hover-border-color;
+  }
+
+  &:focus {
+    z-index: 2;
+    // outline: $pagination-focus-outline;
+    // box-shadow: $pagination-focus-box-shadow;
+  }
+}
+
+.page-item {
+  &:first-child {
+    .page-link {
+      margin-left: 0;
+     // @include border-left-radius($border-radius);
+    }
+  }
+  &:last-child {
+    .page-link {
+     // @include border-right-radius($border-radius);
+    }
+  }
+
+  &.active .page-link {
+    z-index: 1;
+    //color: $pagination-active-color;
+    //background-color: $pagination-active-bg;
+    //border-color: $pagination-active-border-color;
+  }
+
+  &.disabled .page-link {
+   color: #AAAAAA;
+    pointer-events: none;
+    // Opinionated: remove the "hand" cursor set previously for .page-link
+    cursor: auto;
+//    background-color: $pagination-disabled-bg;
+//    border-color: $pagination-disabled-border-color;
+  }
+}
+
+
+//
+// Sizing
+//
+
+//.pagination-lg {
+//  @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
+//}
+//
+//.pagination-sm {
+//  @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
+//}
