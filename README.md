@@ -8,7 +8,7 @@ I have contained the concept and the execution in exactly **4 hours.**
 
 ##Exercise url
 
-http://phantom.crystal-bits.co.uk/home
+http://phantom.crystal-bits.co.uk
 
 ##Structure and design notes
 
