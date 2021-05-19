@@ -6,6 +6,10 @@ This does not pretends to be a show-off of my capabilities. This has to be consi
 
 I have contained the concept and the execution in exactly **4 hours.**
 
+##Exercise url
+
+http://phantom.crystal-bits.co.uk/home
+
 ##Structure and design notes
 
 The core business logic is inside **MainComponent**. Services are initialized here. 
