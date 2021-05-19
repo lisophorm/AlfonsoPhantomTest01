@@ -34,6 +34,8 @@ Validation is "manual" as per guidelines. I haven't used debouncing for the vali
 
 I have added a delete item. It uses the random ID I generate each time a new url is added to the list
 
+I added a progress spinner to the input field, so the user knows when the app is performing a http request
+
 ## How I progress with the work
 
 Very first thing I look at the data structure and I create (when required) interfaces for organising the data. Then I create some mock services for handling the data flow
