@@ -15,7 +15,7 @@
         Url
       </button>
     </form>
-    <div class="errorBox" *ngIf="displayError">Generic error message</div>
+    <div class="errorBox" *ngIf="inputFieldValue!='' && submitActive">Generic error message</div>
   </mat-card>
   <mat-card fxFlex fxLayout="column" fxLayoutAlign="center center">
     <app-data-table-component [entries]="pageOfItems"></app-data-table-component>

@@ -6,7 +6,7 @@ import {PhantomItem} from "../../shared/interfaces/PhantomItem.interface";
   providedIn: 'root'
 })
 
-// stores locally the page number
+// bookmarks the page current number
 
 export class BookMarkService {
 

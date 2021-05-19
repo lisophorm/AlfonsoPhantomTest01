@@ -18,6 +18,7 @@ export class PaginationComponent implements OnInit, OnChanges {
   @Output() changePage = new EventEmitter<any>(true);
   @Output() pageNumberChange = new EventEmitter<number>(true);
   @Input() initialPage = 1;
+  // only 10 instead of 20 just to accelerate testing
   @Input() pageSize = 10;
   @Input() maxPages = 10;
 
@@ -36,6 +37,8 @@ export class PaginationComponent implements OnInit, OnChanges {
       this.setPage(this.initialPage);
     }
   }
+
+  // the core pagination function: it returns only a slice of the original array, in according to the pagination
 
   setPage(page: number) {
     console.log('setpage', page)

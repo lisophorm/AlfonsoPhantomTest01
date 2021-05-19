@@ -63,10 +63,10 @@ export class MainComponent implements OnInit {
   checkField(value: any) {
     console.log('dd', this.inputFieldValue);
     this.urlCheckService.urlExists(this.inputFieldValue).then(result => {
-      console.log('result ok', result)
+      console.log('url success',result)
       this.submitActive = !result;
     }, fail => {
-      console.log('result fail', fail);
+      console.log('url fail',fail)
       this.submitActive = true;
     })
   }
@@ -80,6 +80,5 @@ export class MainComponent implements OnInit {
   setError() {
     console.log('set error');
   }
-
 
 }

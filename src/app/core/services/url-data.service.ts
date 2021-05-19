@@ -23,11 +23,12 @@ export class UrlDataService {
   private STORAGE_KEY = 'local_todolist_phantom';
 
   constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) {
+    // set the default values if first time
     this._urlList = this.storage.get(this.STORAGE_KEY) || [];
-    console.log('bootstrap url list', this._urlList)
   }
 
   public push(url: string): Array<PhantomItem> {
+    // I have added an ID so in future we can manage more easily the list (delete, edit etc.)
     const item: PhantomItem = {
       id: this.makeid(),
       label: url
@@ -37,13 +38,13 @@ export class UrlDataService {
     return this._urlList;
   }
 
-  private makeid() {
+  // creates alphanumeric ID
+
+  private makeid():string {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
     for (var i = 0; i < 5; i++)
       text += possible.charAt(Math.floor(Math.random() * possible.length));
-
     return text;
   }
 
