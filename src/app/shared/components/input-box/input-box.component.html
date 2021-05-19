@@ -1,15 +1,16 @@
 <form class="example-form" fxFlex fxLayout="row">
-  <mat-form-field class="example-full-width">
+  <mat-form-field fxFlex class="example-full-width">
     <mat-label>Type in http address</mat-label>
-    <label>
       <input [(ngModel)]="inputFieldValue" type="email" matInput
              [formControl]="emailFormControl"
              aria-label="type in http address"
              (keyup)="checkField()" (change)="checkField()"
              placeholder="">
-    </label>
+      <mat-spinner *ngIf="spinnerVisible" #spinner matSuffix [diameter]="18" style="float: right; margin-left: 8px;margin-right:16;"></mat-spinner>
+
   </mat-form-field>
-  <button aria-label="save url" mat-raised-button color="accent" class="submit-button" [disabled]="disabled" (click)="submitURL()">Save
+  <button fxFlex="20" aria-label="save url" mat-raised-button color="accent" class="submit-button" [disabled]="disabled"
+          (click)="submitURL()">Save
     Url
   </button>
 </form>

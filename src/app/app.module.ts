@@ -19,6 +19,7 @@ import { ErrorBoxComponent } from './shared/components/error-box/error-box.compo
 import { InputBoxComponent } from './shared/components/input-box/input-box.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatTableModule} from "@angular/material/table";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -39,10 +40,11 @@ import {MatTableModule} from "@angular/material/table";
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
-    MatInputModule,
-    ReactiveFormsModule,
     MatIconModule,
-    MatTableModule
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

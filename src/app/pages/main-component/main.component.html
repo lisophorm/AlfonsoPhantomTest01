@@ -1,7 +1,7 @@
 <div class="main-container" fxFlex fxLayout="column">
-  <mat-card fxFlex fxLayout="column" fxLayoutAlign="start start">
+  <mat-card fxFlex fxLayout="column" fxLayoutAlign="space-around stretch" >
     <!-- having more time I would have componentised also the input field -->
-    <app-input-box (change)="checkField($event)" (submitUrl)="submitURL($event)"  [disabled]="submitActive" ></app-input-box>
+    <app-input-box [spinnerVisible]="spinnerVisible" (change)="checkField($event)" (submitUrl)="submitURL($event)"  [disabled]="submitActive" ></app-input-box>
     <app-error-box #errorBox></app-error-box>
   </mat-card>
   <mat-card class="mt" fxFlex fxLayout="column" fxLayoutAlign="center center">

@@ -1,5 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormControl} from "@angular/forms";
+import {ErrorBoxComponent} from "../error-box/error-box.component";
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-input-box',
@@ -8,11 +10,12 @@ import {FormControl} from "@angular/forms";
 })
 export class InputBoxComponent implements OnInit {
 
-  public emailFormControl: FormControl = new FormControl('', []);
-  public inputFieldValue: string = '';
+  @Input() disabled: boolean = true;
+  @Input() spinnerVisible:boolean = false;
   @Output() change = new EventEmitter<any>(true);
   @Output() submitUrl = new EventEmitter<any>(true);
-  @Input() disabled: boolean = true;
+  public emailFormControl: FormControl = new FormControl('', []);
+  public inputFieldValue: string = '';
   public submitActive: boolean = true;
 
   constructor() {
