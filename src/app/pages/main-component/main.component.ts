@@ -88,7 +88,24 @@ export class MainComponent implements OnInit {
 
   }
 
-  submitURL(value: string) {
+  // delete an item.
+
+  public deleteItem(id: any) {
+    console.log('delete item', id);
+    const index1 = this.pageOfItems.findIndex(item => {
+      return item.id == id;
+    })
+    const index2 = this.items.findIndex(item => {
+      return item.id == id;
+    })
+    this.pageOfItems.splice(index1, 1);
+    this.items.splice(index2, 1)
+    this.paginationComponent.setPage(this.bookMarkService.pageNumber);
+  }
+
+
+  submitURL(value: any) {
+    console.log('submitURL', value)
     this.urlDataService.push(value);
     this.submitActive = true;
     this.router.navigate(['thankyou'], {queryParams: {url: value}})

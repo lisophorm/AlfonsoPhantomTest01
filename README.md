@@ -30,6 +30,10 @@ I haven't used yet ngRX or similar. I will do an online course in the next few d
 
 Validation is "manual" as per guidelines. I haven't used debouncing for the validation. 
 
+## Extra functionalities
+
+I have added a delete item. It uses the random ID I generate each time a new url is added to the list
+
 ## How I progress with the work
 
 Very first thing I look at the data structure and I create (when required) interfaces for organising the data. Then I create some mock services for handling the data flow

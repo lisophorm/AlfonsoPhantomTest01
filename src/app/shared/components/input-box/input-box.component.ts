@@ -11,7 +11,7 @@ export class InputBoxComponent implements OnInit {
   public emailFormControl: FormControl = new FormControl('', []);
   public inputFieldValue: string = '';
   @Output() change = new EventEmitter<any>(true);
-  @Output() submit = new EventEmitter<any>(true);
+  @Output() submitUrl = new EventEmitter<any>(true);
   @Input() disabled: boolean = true;
   public submitActive: boolean = true;
 
@@ -26,7 +26,7 @@ export class InputBoxComponent implements OnInit {
   }
 
   submitURL() {
-    this.submit.emit(this.inputFieldValue);
+    this.submitUrl.emit(this.inputFieldValue);
   }
 
 }

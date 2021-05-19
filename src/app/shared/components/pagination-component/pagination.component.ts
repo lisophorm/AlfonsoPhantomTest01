@@ -53,6 +53,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     this.pageNumberChange.emit(page);
   }
 
+
   private paginate(totalItems: number, currentPage: number, pageSize: number, maxPages: number) {
     if (currentPage === void 0) {
       currentPage = 1;

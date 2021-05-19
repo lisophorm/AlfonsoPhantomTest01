@@ -33,8 +33,10 @@ export class UrlDataService {
       id: this.makeid(),
       label: url
     }
+    console.log('urlList before',this._urlList);
     this._urlList.push(item);
     this.storage.set(this.STORAGE_KEY, this._urlList);
+    console.log('urlList after',this._urlList);
     return this._urlList;
   }
 
