@@ -24,6 +24,7 @@ export class MainComponent implements OnInit {
   public pageOfItems: Array<PhantomItem> = [];
   public submitActive: boolean = true
   public urlCheckService: UrlCheckService = new UrlCheckService();
+  public debounceTimer: any
 
   @ViewChild('myPagination') paginationComponent: PaginationComponent = new PaginationComponent();
   @ViewChild('errorBox') errorBoxComponent: ErrorBoxComponent = new ErrorBoxComponent();
@@ -69,19 +70,24 @@ export class MainComponent implements OnInit {
     } else if (this.urlCheckService.validURL(value)) {
       this.errorBoxComponent.hide();
       // check for url
-      this.urlCheckService.urlExists(value).then(result => {
-        console.log('url success', result)
-        this.submitActive = !result;
-        if (result) {
-          this.errorBoxComponent.hide();
-        } else {
+      clearInterval(this.debounceTimer);
+      // simple and brutal debounce
+      this.debounceTimer = setTimeout(() => {
+        this.urlCheckService.urlExists(value).then(result => {
+          console.log('url success', result)
+          this.submitActive = !result;
+          if (result) {
+            this.errorBoxComponent.hide();
+          } else {
+            this.errorBoxComponent.show('This url does not exists');
+          }
+        }, fail => {
+          console.log('url fail', fail);
           this.errorBoxComponent.show('This url does not exists');
-        }
-      }, fail => {
-        console.log('url fail', fail);
-        this.errorBoxComponent.show('This url does not exists');
-        this.submitActive = true;
-      })
+          this.submitActive = true;
+        })
+      }, 1000)
+
     } else {
       this.errorBoxComponent.show('Please type a well formed URL');
     }
