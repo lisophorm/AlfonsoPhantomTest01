@@ -16,6 +16,8 @@ http://phantom.crystal-bits.co.uk
 
 The core business logic is inside **MainComponent**. Services are initialized here. 
 
+I have converted every action unit in a component, the communication happens trough events. They all bubble to MainComponent so there is a single point where all the logic is handled.
+
 **PaginatorComponent** takes care of splitting the list in accordance with the current page
 
 The list of URLs is based on the interface **PhanthomInterface**, each time a new url is added I add a unique ID that can be used in future for deleting, editing etc.

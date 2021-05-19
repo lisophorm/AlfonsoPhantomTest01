@@ -20,7 +20,6 @@ export class MainComponent implements OnInit {
   public displayError: boolean = false;
   public emailFormControl: FormControl = new FormControl('', []);
   public initialPage: number = 1;
-  public inputFieldValue: string = '';
   public items: Array<PhantomItem> = [];
   public pageOfItems: Array<PhantomItem> = [];
   public submitActive: boolean = true
@@ -62,18 +61,18 @@ export class MainComponent implements OnInit {
   //
 
   checkField(value: any) {
-    console.log('dd', this.inputFieldValue);
+    console.log('checkField', value);
     // hides if empty
-    if(this.inputFieldValue == '') {
+    if (value == '') {
       this.errorBoxComponent.hide();
       // regexp validation
-    } else if (this.urlCheckService.validURL(this.inputFieldValue)) {
+    } else if (this.urlCheckService.validURL(value)) {
       this.errorBoxComponent.hide();
       // check for url
-      this.urlCheckService.urlExists(this.inputFieldValue).then(result => {
+      this.urlCheckService.urlExists(value).then(result => {
         console.log('url success', result)
         this.submitActive = !result;
-        if(result) {
+        if (result) {
           this.errorBoxComponent.hide();
         } else {
           this.errorBoxComponent.show('This url does not exists');
@@ -89,10 +88,10 @@ export class MainComponent implements OnInit {
 
   }
 
-  submitURL() {
-    this.urlDataService.push(this.inputFieldValue);
+  submitURL(value: string) {
+    this.urlDataService.push(value);
     this.submitActive = true;
-    this.router.navigate(['thankyou'], {queryParams: {url: this.inputFieldValue}})
+    this.router.navigate(['thankyou'], {queryParams: {url: value}})
   }
 
 }
