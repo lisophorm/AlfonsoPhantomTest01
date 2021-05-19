@@ -1,0 +1,15 @@
+<form class="example-form" fxFlex fxLayout="row">
+  <mat-form-field class="example-full-width">
+    <mat-label>Type in http address</mat-label>
+    <label>
+      <input [(ngModel)]="inputFieldValue" type="email" matInput
+             [formControl]="emailFormControl"
+             aria-label="type in http address"
+             (keyup)="checkField()" (change)="checkField()"
+             placeholder="">
+    </label>
+  </mat-form-field>
+  <button aria-label="save url" mat-raised-button color="accent" class="submit-button" [disabled]="submitActive" (click)="submitURL()">Save
+    Url
+  </button>
+</form>

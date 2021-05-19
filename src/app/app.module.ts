@@ -15,6 +15,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import {FlexibleConnectedPositionStrategy} from "@angular/cdk/overlay";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { ErrorBoxComponent } from './shared/components/error-box/error-box.component';
+import { InputBoxComponent } from './shared/components/input-box/input-box.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     DataTableComponent,
     PaginationComponent,
     MainComponent,
-    ThankYouComponent
+    ThankYouComponent,
+    ErrorBoxComponent,
+    InputBoxComponent
   ],
   imports: [
     AppRoutingModule,

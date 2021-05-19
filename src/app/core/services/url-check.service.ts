@@ -12,8 +12,10 @@ export class UrlCheckService {
   // TODO return different kind of errors
   // TODO debouncing
 
+
+  // checks if the url returns 200
+
   public urlExists(url: string) {
-    if (this.validURL(url)) {
       return fetch(url, {mode: "no-cors"})
         .then(res => {
           return Promise.resolve(true)
@@ -21,11 +23,9 @@ export class UrlCheckService {
           return Promise.reject(false)
         })
         .catch(err => false)
-    } else {
-      return Promise.reject(false)
-    }
-
   }
+
+  // checks url syntax
 
   public validURL(str: string) {
     var pattern = new RegExp('https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)', 'gi'); // fragment locator

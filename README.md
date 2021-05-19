@@ -4,7 +4,7 @@ This is the execution of the exercise requested by Phantom.
 
 This does not pretends to be a show-off of my capabilities. This has to be considered as my ability to come with a proof of concept in a short amount of time.
 
-I have contained the concept and the execution in exactly **4 hours.**
+I have contained the concept and the execution in exactly **4 hours**.
 
 
 ##Exercise url

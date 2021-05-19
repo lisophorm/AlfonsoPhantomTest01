@@ -1,27 +1,28 @@
 <div class="main-container" fxFlex fxLayout="column">
-  <mat-card fxFlex fxLayout="column">
+  <mat-card fxFlex fxLayout="column" fxLayoutAlign="start start">
+    <!-- having more time I would have componentised also the input field -->
+    <app-input-box></app-input-box>
     <form class="example-form" fxFlex fxLayout="row">
       <mat-form-field class="example-full-width">
-        <!-- [errorStateMatcher]="matcher"-->
-        <mat-label>Http address</mat-label>
+        <mat-label>Type in http address</mat-label>
         <label>
           <input [(ngModel)]="inputFieldValue" type="email" matInput
                  [formControl]="emailFormControl"
+                 aria-label="type in http address"
                  (keyup)="checkField($event)" (change)="checkField($event)"
                  placeholder="">
         </label>
       </mat-form-field>
-      <button mat-raised-button color="accent" class="submitButton" [disabled]="submitActive" (click)="submitURL()">Save
+      <button aria-label="save url" mat-raised-button color="accent" class="submit-button" [disabled]="submitActive" (click)="submitURL()">Save
         Url
       </button>
     </form>
-    <div class="errorBox" *ngIf="inputFieldValue!='' && submitActive">Generic error message</div>
+    <app-error-box #errorBox></app-error-box>
   </mat-card>
-  <mat-card fxFlex fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="mt" fxFlex fxLayout="column" fxLayoutAlign="center center">
     <app-data-table-component [entries]="pageOfItems"></app-data-table-component>
-    <app-pagination-component #myPagination [initialPage]="initialPage" fxFlex="55" [items]="items"
+    <app-pagination-component aria-label="pagination" #myPagination [initialPage]="initialPage" fxFlex="55" [items]="items"
                               (pageNumberChange)="bookMarkPage($event)" (changePage)="onChangePage($event)">
-
     </app-pagination-component>
   </mat-card>
 </div>

@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 import {PhantomItem} from "../../shared/interfaces/PhantomItem.interface";
 import {PaginationComponent} from "../../shared/components/pagination-component/pagination.component";
 import {BookMarkService} from "../../core/services/bookMark.service";
+import {ErrorBoxComponent} from "../../shared/components/error-box/error-box.component";
 
 @Component({
   selector: 'app-main-component',
@@ -17,16 +18,16 @@ import {BookMarkService} from "../../core/services/bookMark.service";
 export class MainComponent implements OnInit {
 
   public displayError: boolean = false;
+  public emailFormControl: FormControl = new FormControl('', []);
+  public initialPage: number = 1;
   public inputFieldValue: string = '';
   public items: Array<PhantomItem> = [];
   public pageOfItems: Array<PhantomItem> = [];
   public submitActive: boolean = true
   public urlCheckService: UrlCheckService = new UrlCheckService();
-  public initialPage: number = 1;
-
-  public emailFormControl: FormControl = new FormControl('', []);
 
   @ViewChild('myPagination') paginationComponent: PaginationComponent = new PaginationComponent();
+  @ViewChild('errorBox') errorBoxComponent: ErrorBoxComponent = new ErrorBoxComponent();
 
   constructor(public urlDataService: UrlDataService,
               public bookMarkService: BookMarkService,
@@ -62,23 +63,36 @@ export class MainComponent implements OnInit {
 
   checkField(value: any) {
     console.log('dd', this.inputFieldValue);
-    this.urlCheckService.urlExists(this.inputFieldValue).then(result => {
-      console.log('url success',result)
-      this.submitActive = !result;
-    }, fail => {
-      console.log('url fail',fail)
-      this.submitActive = true;
-    })
+    // hides if empty
+    if(this.inputFieldValue == '') {
+      this.errorBoxComponent.hide();
+      // regexp validation
+    } else if (this.urlCheckService.validURL(this.inputFieldValue)) {
+      this.errorBoxComponent.hide();
+      // check for url
+      this.urlCheckService.urlExists(this.inputFieldValue).then(result => {
+        console.log('url success', result)
+        this.submitActive = !result;
+        if(result) {
+          this.errorBoxComponent.hide();
+        } else {
+          this.errorBoxComponent.show('This url does not exists');
+        }
+      }, fail => {
+        console.log('url fail', fail);
+        this.errorBoxComponent.show('This url does not exists');
+        this.submitActive = true;
+      })
+    } else {
+      this.errorBoxComponent.show('Please type a well formed URL');
+    }
+
   }
 
   submitURL() {
     this.urlDataService.push(this.inputFieldValue);
     this.submitActive = true;
     this.router.navigate(['thankyou'], {queryParams: {url: this.inputFieldValue}})
-  }
-
-  setError() {
-    console.log('set error');
   }
 
 }
